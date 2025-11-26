@@ -1,0 +1,13 @@
+<nav style="padding: 0.5rem; border-bottom: 1px solid #ddd">
+  <a
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Accueil</a
+  >
+  | <a routerLink="/about" routerLinkActive="active">À propos</a>
+</nav>
+<main style="padding: 1rem">
+  <router-outlet></router-outlet> // est utilisé une seule fois dans App :c’est
+  la zone où Angular affiche le composant correspondant à la route active.”
+</main>
