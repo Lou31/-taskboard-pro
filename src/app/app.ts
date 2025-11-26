@@ -5,13 +5,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterLink, RouterOutlet],
-  template: `
-    <nav>
-      <a routerLink="">Home</a>
-      <a routerLink="about">About</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
+  templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
 export class App {
