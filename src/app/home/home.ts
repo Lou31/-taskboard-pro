@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Task } from '../core/services/task';
 import { AsyncPipe } from '@angular/common';
+import { TasksPage } from '../tasks-page/tasks-page';
 
 @Component({
   selector: 'app-home',
