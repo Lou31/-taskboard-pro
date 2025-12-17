@@ -1,7 +1,10 @@
 <h2>Accueil</h2>
-<p>Bienvenue sur la page d’accueil.</p>
+<p>Bienvenue sur la page d'accueil.</p>
 <h2>Liste des tâches</h2>
-@if (tasks$ | async; as tasks) {
+
+<a routerLink="/tasks">Tâches</a>
+
+<!-- @if (tasks$ | async; as tasks) {
 <ul>
   @for (t of tasks; track t.id){
   <li>{{ t.title }}</li>
@@ -16,4 +19,4 @@
 <hr />
 
 <h3>Actions</h3>
-<button (click)="addTask('Nouvelle tâche')">Ajouter une tâche</button>
+<button (click)="addTask('Nouvelle tâche')">Ajouter une tâche</button> -->

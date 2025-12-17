@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
+export interface TaskItem {
+  id: number;
+  title: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,12 +17,17 @@ export class Task {
     { id: 3, title: 'Jsp' },
   ];
 
-  private tasksSubject = new BehaviorSubject(this.tasks);
+  private tasksSubject = new BehaviorSubject<TaskItem[]>(this.tasks);
   tasks$ = this.tasksSubject.asObservable();
 
   addTask(title: string) {
-    const newTask = { id: Date.now(), title };
+    const newTask: TaskItem = { id: Date.now(), title };
     this.tasks = [...this.tasks, newTask];
+    this.tasksSubject.next(this.tasks);
+  }
+
+  deleteTask(id: number) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
     this.tasksSubject.next(this.tasks);
   }
 
