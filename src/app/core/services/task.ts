@@ -11,6 +11,7 @@ export interface TaskItem {
   providedIn: 'root',
 })
 export class Task {
+  private nextId = 4; // Compteur pour les nouveaux IDs
   private tasks = [
     { id: 1, title: 'Préparer le cours de demain' },
     { id: 2, title: 'Corriger le cours de hier' },
@@ -31,7 +32,17 @@ export class Task {
     this.tasksSubject.next(this.tasks);
   }
 
-  getTasks() {
-    return of(this.tasks).pipe(delay(1000));
+  // getTasks() {
+  //   return of(this.tasks).pipe(delay(1000));
+  // }
+
+  getTasks(): TaskItem[] {
+    return this.tasksSubject.value;
+  }
+
+  clearTasks(): void {
+    this.tasks = [];
+    this.tasksSubject.next([]);
+    this.nextId = 1;
   }
 }
